@@ -3,15 +3,15 @@ import Counter from './components/counter'
 import {Link} from 'react-router'
 import styles from './App.css'
 import {connect} from 'react-redux'
-
+import {increment, decrement} from './actions'
 class App extends Component {
   render(){
-    let {count} = this.props
-    console.log(this.props)
+    let {count,handleClick,increaseCount,decreaseCount} = this.props
     return(
       <div>
         <div>
-          <Counter btnText='Increase'/>{count}
+          <Counter btnText='Increase' handler={increaseCount}/><p>{count}</p>
+          <Counter btnText='Decrease' handler={decreaseCount}/>
         </div>
       </div>
     )
@@ -20,4 +20,12 @@ class App extends Component {
 const mapStateToProps = (state)=>{
   return state.counter;
 }
-export default connect(mapStateToProps,null)(App);
+const mapDispatchToProps = (dispatch) =>({
+  increaseCount(){
+   dispatch({type:"INCREMENT"})
+ },
+  decreaseCount(){
+    dispatch({type:'DECREMENT'})
+  }
+})
+export default connect(mapStateToProps,mapDispatchToProps)(App);
