@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import Counter from './components/counter'
 import {Link} from 'react-router'
 import styles from './App.css'
+import {connect} from 'react-redux'
+
 class App extends Component {
   render(){
+    let {count} = this.props
+    console.log(this.props)
     return(
       <div>
-      <div className='nav-header'>
-        <Link to='/'>Home </Link>
-        <Link to='/about'>About Us</Link>
-      </div>
-
-        <div id='content'>
-          {this.props.children}
+        <div>
+          <Counter btnText='Increase'/>{count}
         </div>
       </div>
     )
   }
 }
-
-export default App;
+const mapStateToProps = (state)=>{
+  return state.counter;
+}
+export default connect(mapStateToProps,null)(App);
