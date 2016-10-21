@@ -2,7 +2,6 @@
 import store from '../store/configureStore'
 var initialState = {count:0}
 var counter = function(state=initialState, action) {
-  console.log('Action Triggered: ', action.type)
   switch (action.type) {
     case 'INCREMENT':
       return {count:state.count+1}
