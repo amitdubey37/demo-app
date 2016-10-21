@@ -12,6 +12,7 @@ class App extends Component {
         <div className='nav-header'>
           <Link to='/'>Home</Link>
           <Link to='/about'>About Us</Link>
+          <Link to='/users'>Users</Link>
         </div>
         <div>
           {this.props.children}

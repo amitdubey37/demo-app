@@ -7,14 +7,17 @@
   text-decoration: none;
   height: 40px;
   text-align: center;
+  color: #fff!important
 }
 .nav-header a:hover{
-  background: gray;
+  background: #fff!important;
+  color: black!important
 }
 
 .nav-header{
   background: #8a8282;
   height: 40px;
+
 }
 
 #counter{
