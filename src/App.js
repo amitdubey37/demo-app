@@ -9,9 +9,19 @@ class App extends Component {
     let {count,handleClick,increaseCount,decreaseCount} = this.props
     return(
       <div>
+        <div className='nav-header'>
+          <Link to='/'>Home</Link>
+          <Link to='/about'>About Us</Link>
+        </div>
         <div>
-          <Counter btnText='Increase' handler={increaseCount}/><p>{count}</p>
-          <Counter btnText='Decrease' handler={decreaseCount}/>
+          {this.props.children}
+          <div id='counter'>
+          <div>
+            <Counter btnText='Increase' handler={increaseCount}/>
+              {count}
+            <Counter btnText='Decrease' handler={decreaseCount}/>
+          </div>
+          </div>
         </div>
       </div>
     )
